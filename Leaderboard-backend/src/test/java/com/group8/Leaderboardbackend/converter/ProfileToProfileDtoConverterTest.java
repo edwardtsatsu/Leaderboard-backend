@@ -47,13 +47,10 @@ public class ProfileToProfileDtoConverterTest {
         assertEquals(260, actualConvertResult.getHonour().intValue());
     }
 
-    @Test
-    void testConvertLanguages() {
-        assertTrue(this.profileToProfileDtoConverter.convertLanguages(new ArrayList<>()).isEmpty());
-    }
+
 
     @Test
-    void testConvertLanguages2() {
+    void testConvertLanguages() {
         Profile profile = new Profile();
         profile.setClan("Clan");
         profile.setHonour(0);
@@ -77,45 +74,5 @@ public class ProfileToProfileDtoConverterTest {
         assertEquals(0, getResult.getRank().intValue());
     }
 
-    @Test
-    void testConvertLanguages3() {
-        Profile profile = new Profile();
-        profile.setClan("Clan");
-        profile.setHonour(0);
-        profile.setId("42");
-        profile.setLanguageLevels(new ArrayList<>());
-        profile.setName("Name");
-        profile.setOverallRank(0);
 
-        LanguageLevel languageLevel = new LanguageLevel();
-        languageLevel.setName("Name");
-        languageLevel.setProfile(profile);
-        languageLevel.setRank(0);
-
-        Profile profile1 = new Profile();
-        profile1.setClan("Clan");
-        profile1.setHonour(0);
-        profile1.setId("42");
-        profile1.setLanguageLevels(new ArrayList<>());
-        profile1.setName("Name");
-        profile1.setOverallRank(0);
-
-        LanguageLevel languageLevel1 = new LanguageLevel();
-        languageLevel1.setName("Name");
-        languageLevel1.setProfile(profile1);
-        languageLevel1.setRank(0);
-
-        ArrayList<LanguageLevel> languageLevelList = new ArrayList<>();
-        languageLevelList.add(languageLevel1);
-        languageLevelList.add(languageLevel);
-        List<LanguageLevelDto> actualConvertLanguagesResult = this.profileToProfileDtoConverter
-                .convertLanguages(languageLevelList);
-        assertEquals(2, actualConvertLanguagesResult.size());
-        LanguageLevelDto getResult = actualConvertLanguagesResult.get(1);
-        assertEquals(0, getResult.getRank().intValue());
-        assertEquals("Name", getResult.getName());
-        LanguageLevelDto getResult1 = actualConvertLanguagesResult.get(0);
-        assertEquals(0, getResult1.getRank().intValue());
-        assertEquals("Name", getResult1.getName());
-    }
 }
