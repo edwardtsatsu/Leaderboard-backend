@@ -51,27 +51,30 @@ public class ProfileToProfileDtoConverterTest {
 
     @Test
     void testConvertLanguages() {
+
+        //given
         Profile profile = new Profile();
-        profile.setClan("Clan");
-        profile.setHonour(0);
-        profile.setId("42");
+        profile.setClan("turntabl");
+        profile.setHonour(332);
+        profile.setId("aweperi");
         profile.setLanguageLevels(new ArrayList<>());
-        profile.setName("Name");
-        profile.setOverallRank(0);
+        profile.setName("Adiba Aweperi Emmanuel");
+        profile.setOverallRank(-5);
 
         LanguageLevel languageLevel = new LanguageLevel();
-        languageLevel.setName("Name");
+        languageLevel.setName("java");
         languageLevel.setProfile(profile);
-        languageLevel.setRank(0);
+        languageLevel.setRank(-5);
 
+        //when
         ArrayList<LanguageLevel> languageLevelList = new ArrayList<>();
         languageLevelList.add(languageLevel);
-        List<LanguageLevelDto> actualConvertLanguagesResult = this.profileToProfileDtoConverter
-                .convertLanguages(languageLevelList);
+        List<LanguageLevelDto> actualConvertLanguagesResult = this.profileToProfileDtoConverter.convertLanguages(languageLevelList);
         assertEquals(1, actualConvertLanguagesResult.size());
         LanguageLevelDto getResult = actualConvertLanguagesResult.get(0);
-        assertEquals("Name", getResult.getName());
-        assertEquals(0, getResult.getRank().intValue());
+
+        assertEquals("java", getResult.getName());
+        assertEquals(-5, getResult.getRank().intValue());
     }
 
 
