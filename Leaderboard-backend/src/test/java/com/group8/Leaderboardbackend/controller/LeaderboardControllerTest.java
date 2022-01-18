@@ -47,4 +47,5 @@ public class LeaderboardControllerTest {
                 .andExpect(result -> assertThat(result.getResponse().
                         getContentAsString()).isEqualTo(objectMapper.writeValueAsString(expectedResponse)));
     }
+
 }
