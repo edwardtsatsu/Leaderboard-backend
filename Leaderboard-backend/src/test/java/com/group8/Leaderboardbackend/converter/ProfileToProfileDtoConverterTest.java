@@ -24,21 +24,27 @@ public class ProfileToProfileDtoConverterTest {
 
     @Test
     void testConvert() {
+        //given
         Profile profile = new Profile();
-        profile.setClan("Clan");
-        profile.setHonour(1);
-        profile.setId("42");
+        profile.setClan("turntabl");
+        profile.setHonour(260);
+        profile.setId("edwardtsatsu");
+
         ArrayList<LanguageLevel> languageLevelList = new ArrayList<>();
         profile.setLanguageLevels(languageLevelList);
-        profile.setName("Name");
-        profile.setOverallRank(1);
+        profile.setName("Akorlie Edward Tsatsu");
+        profile.setOverallRank(-5);
+
+        //when
         ProfileDto actualConvertResult = this.profileToProfileDtoConverter.convert(profile);
-        assertEquals("Clan", actualConvertResult.getClan());
-        assertEquals("42", actualConvertResult.getUsername());
-        assertEquals(1, actualConvertResult.getOverallRank().intValue());
-        assertEquals("Name", actualConvertResult.getName());
+
+        //that
+        assertEquals("turntabl", actualConvertResult.getClan());
+        assertEquals("edwardtsatsu", actualConvertResult.getUsername());
+        assertEquals(-5, actualConvertResult.getOverallRank().intValue());
+        assertEquals("Akorlie Edward Tsatsu", actualConvertResult.getName());
         assertEquals(languageLevelList, actualConvertResult.getLanguages());
-        assertEquals(1, actualConvertResult.getHonour().intValue());
+        assertEquals(260, actualConvertResult.getHonour().intValue());
     }
 
     @Test
