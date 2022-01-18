@@ -6,6 +6,7 @@ import com.group8.Leaderboardbackend.controller.response.ProfileResponse;
 import com.group8.Leaderboardbackend.converter.ProfileToOverallRankConverter;
 import com.group8.Leaderboardbackend.converter.ProfileToProfileDtoConverter;
 import com.group8.Leaderboardbackend.converter.ProfileToProfileResponseConverter;
+import com.group8.Leaderboardbackend.model.Profile;
 import com.group8.Leaderboardbackend.service.LeaderboardRepositoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -48,5 +49,9 @@ public class LeaderboardFacade {
                 .collect(toList());
 
 
+    }
+
+    public Profile createProfile(Profile profile){
+        return leaderboardRepositoryService.createProfile(profile);
     }
 }
