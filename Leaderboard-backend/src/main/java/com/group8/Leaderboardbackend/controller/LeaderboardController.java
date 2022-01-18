@@ -3,10 +3,9 @@ package com.group8.Leaderboardbackend.controller;
 import com.group8.Leaderboardbackend.controller.response.OverallRankResponse;
 import com.group8.Leaderboardbackend.controller.response.ProfileDto;
 import com.group8.Leaderboardbackend.controller.response.ProfileResponse;
+import com.group8.Leaderboardbackend.model.Profile;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +29,11 @@ public class LeaderboardController {
     @GetMapping("/overallRank")
     public List<OverallRankResponse> getLeaderboardByRank(){
         return leaderboardFacade.getLeaderboardByRank();
+    }
+
+    @PostMapping
+    public void createProfile(@RequestBody Profile profile) {
+        leaderboardFacade.createProfile(profile);
     }
 
 }
