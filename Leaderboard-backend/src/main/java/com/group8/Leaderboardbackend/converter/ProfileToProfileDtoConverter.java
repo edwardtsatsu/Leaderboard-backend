@@ -1,4 +1,6 @@
 package com.group8.Leaderboardbackend.converter;
+import com.group8.Leaderboardbackend.controller.response.LanguageLevelDto;
+import com.group8.Leaderboardbackend.controller.response.ProfileDto;
 import com.group8.Leaderboardbackend.model.LanguageLevel;
 import com.group8.Leaderboardbackend.model.Profile;
 import org.springframework.stereotype.Component;

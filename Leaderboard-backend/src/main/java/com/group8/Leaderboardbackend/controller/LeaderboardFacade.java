@@ -1,7 +1,11 @@
 package com.group8.Leaderboardbackend.controller;
 
+import com.group8.Leaderboardbackend.controller.response.OverallRankResponse;
 import com.group8.Leaderboardbackend.controller.response.ProfileDto;
+import com.group8.Leaderboardbackend.controller.response.ProfileResponse;
+import com.group8.Leaderboardbackend.converter.ProfileToOverallRankConverter;
 import com.group8.Leaderboardbackend.converter.ProfileToProfileDtoConverter;
+import com.group8.Leaderboardbackend.converter.ProfileToProfileResponseConverter;
 import com.group8.Leaderboardbackend.service.LeaderboardRepositoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

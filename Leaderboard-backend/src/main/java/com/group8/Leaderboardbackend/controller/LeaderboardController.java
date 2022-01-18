@@ -1,6 +1,8 @@
 package com.group8.Leaderboardbackend.controller;
 
+import com.group8.Leaderboardbackend.controller.response.OverallRankResponse;
 import com.group8.Leaderboardbackend.controller.response.ProfileDto;
+import com.group8.Leaderboardbackend.controller.response.ProfileResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
