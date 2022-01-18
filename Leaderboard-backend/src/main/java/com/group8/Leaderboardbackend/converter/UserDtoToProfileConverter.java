@@ -6,11 +6,14 @@ import com.group8.Leaderboardbackend.model.LanguageLevel;
 import com.group8.Leaderboardbackend.model.Profile;
 import lombok.NonNull;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 import java.util.Map;
 import static java.util.stream.Collectors.toList;
 
 
+@Component
 public class UserDtoToProfileConverter implements Converter<UserDto, Profile> {
 
     @Override
