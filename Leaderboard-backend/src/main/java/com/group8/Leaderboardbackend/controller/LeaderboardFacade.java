@@ -1,14 +1,20 @@
 package com.group8.Leaderboardbackend.controller;
+
+import com.group8.Leaderboardbackend.controller.response.ProfileDto;
+import com.group8.Leaderboardbackend.converter.ProfileToProfileDtoConverter;
+import com.group8.Leaderboardbackend.service.LeaderboardRepositoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import static java.util.stream.Collectors.toList;
+
 import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
 
-@RequiredArgsConstructor
-@Component
-public class LeaderboardFacade {
+import static java.util.stream.Collectors.toList;
 
+@Component
+@RequiredArgsConstructor
+public class LeaderboardFacade {
     private final LeaderboardRepositoryService leaderboardRepositoryService;
     private final ProfileToProfileDtoConverter profileToProfileDtoConverter;
     private final ProfileToProfileResponseConverter profileToProfileResponseConverter;

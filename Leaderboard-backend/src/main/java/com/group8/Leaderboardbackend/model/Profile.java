@@ -6,9 +6,11 @@ import lombok.experimental.Accessors;
 import javax.persistence.*;
 import java.util.List;
 
+
+@Table(name = "PROFILES")
+@Entity
 @Data
 @Accessors(chain = true)
-@Entity
 public class Profile {
     @Id
     private String id;

@@ -9,6 +9,15 @@ import lombok.extern.jackson.Jacksonized;
 @Builder
 public class UserDto {
 
-    Integer rank;
+    String username;
+
+    String name;
+
+    String clan;
+
+    Integer honor;
+
+    RanksDto ranks;
+
 
 }
