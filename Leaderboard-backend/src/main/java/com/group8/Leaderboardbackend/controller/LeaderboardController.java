@@ -5,6 +5,7 @@ import com.group8.Leaderboardbackend.controller.response.ProfileDto;
 import com.group8.Leaderboardbackend.controller.response.ProfileResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,5 +32,16 @@ public class LeaderboardController {
     public List<OverallRankResponse> getLeaderboardByRank(){
         return leaderboardFacade.getLeaderboardByRank();
     }
+
+    @GetMapping("language/{language}")
+    public List<ProfileDto> getUsersByLanguage(@PathVariable("language") String language ){
+        return leaderboardFacade.getUsersByCommonLanguage(language);
+    }
+
+
+
+
+
+
 
 }

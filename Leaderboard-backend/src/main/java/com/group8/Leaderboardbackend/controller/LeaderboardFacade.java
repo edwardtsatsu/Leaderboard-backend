@@ -6,6 +6,7 @@ import com.group8.Leaderboardbackend.controller.response.ProfileResponse;
 import com.group8.Leaderboardbackend.converter.ProfileToOverallRankConverter;
 import com.group8.Leaderboardbackend.converter.ProfileToProfileDtoConverter;
 import com.group8.Leaderboardbackend.converter.ProfileToProfileResponseConverter;
+import com.group8.Leaderboardbackend.model.Profile;
 import com.group8.Leaderboardbackend.service.LeaderboardRepositoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -24,6 +25,7 @@ public class LeaderboardFacade {
     private final ProfileToProfileResponseConverter profileToProfileResponseConverter;
     private final ProfileToOverallRankConverter profileToOverallRankConverter;
 
+
     public List<ProfileDto> getLeaderboard() {
         return leaderboardRepositoryService.getProfiles().stream()
                 .map(profileToProfileDtoConverter::convert)
@@ -40,6 +42,7 @@ public class LeaderboardFacade {
 
     }
 
+
     public List<OverallRankResponse> getLeaderboardByRank(){
         return leaderboardRepositoryService.getProfiles().stream()
                 .map(profileToOverallRankConverter::convert)
@@ -49,4 +52,16 @@ public class LeaderboardFacade {
 
 
     }
+
+    public List<ProfileDto> getUsersByCommonLanguage(String language){
+        return leaderboardRepositoryService.getProfiles().stream()
+                .filter(x->x.getLanguageLevels().stream().anyMatch(y->y.getName().equals(language)))
+                .sorted(Comparator.comparingInt(Profile::getHonour).reversed())
+                .map(profileToProfileDtoConverter::convert)
+                .collect(toList());
+
+    }
+
+
+
 }
