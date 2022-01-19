@@ -8,6 +8,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -39,5 +43,14 @@ public class LeaderboardController {
     public void createProfile(@RequestBody Profile profile) {
         leaderboardFacade.createProfile(profile);
     }
+
+
+    @GetMapping("language/{language}")
+    public List<ProfileDto> getUsersByLanguage(@PathVariable("language") String language ){
+        return leaderboardFacade.getUsersByCommonLanguage(language);
+    }
+
+
+
 
 }

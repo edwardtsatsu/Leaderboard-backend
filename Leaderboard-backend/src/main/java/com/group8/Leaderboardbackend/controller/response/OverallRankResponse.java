@@ -9,10 +9,13 @@ import lombok.Value;
 public class OverallRankResponse {
     String username;
 
+
     String clan;
 
     @JsonProperty(value = "overall_rank")
     Integer overallRank;
+
+
 
 }
 
