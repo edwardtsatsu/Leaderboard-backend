@@ -48,7 +48,6 @@ public class LeaderboardFacade {
                 .sorted(Comparator.comparingInt(OverallRankResponse::getOverallRank).reversed())
                 .collect(toList());
 
-
     }
 
     public Profile createProfile(Profile profile){
