@@ -53,7 +53,7 @@ public class LeaderboardFacade {
 
     }
 
-    public List<ProfileDto> getUsersByCommonLanguage(String language){
+    public List<ProfileDto> getLeaderboardByLanguage(String language){
         return leaderboardRepositoryService.getProfiles().stream()
                 .filter(x->x.getLanguageLevels().stream().anyMatch(y->y.getName().equals(language)))
                 .sorted(Comparator.comparingInt(Profile::getHonour).reversed())
