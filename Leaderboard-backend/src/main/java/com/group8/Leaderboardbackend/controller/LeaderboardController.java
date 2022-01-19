@@ -36,10 +36,7 @@ public class LeaderboardController {
         return leaderboardFacade.getLeaderboardByRank();
     }
 
-    @PostMapping
-    public void createProfile(@RequestBody Profile profile) {
-        leaderboardFacade.createProfile(profile);
-    }
+
 
 
     @GetMapping("language/{language}")
