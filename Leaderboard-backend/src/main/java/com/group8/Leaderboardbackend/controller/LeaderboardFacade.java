@@ -52,6 +52,10 @@ public class LeaderboardFacade {
 
 
     }
+  
+    public Profile createProfile(Profile profile){
+        return leaderboardRepositoryService.createProfile(profile);
+    }
 
     public List<ProfileDto> getUsersByCommonLanguage(String language){
         return leaderboardRepositoryService.getProfiles().stream()
@@ -61,7 +65,6 @@ public class LeaderboardFacade {
                 .collect(toList());
 
     }
-
 
 
 }

@@ -16,4 +16,8 @@ public class LeaderboardRepositoryService {
         return profileRepository.findAll();
     }
 
+    public Profile createProfile(Profile profile){
+        return profileRepository.save(profile);
+    }
+
 }
