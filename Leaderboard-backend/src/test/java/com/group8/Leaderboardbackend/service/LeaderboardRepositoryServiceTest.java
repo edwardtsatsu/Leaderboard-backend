@@ -46,10 +46,10 @@ public class LeaderboardRepositoryServiceTest {
     @Test
     void shouldCreateProfile() {
         //given
-//        String profile = mock(Profile.class);
+        Profile profile = mock(Profile.class);
 
         //when
-//        underTest.createProfile(profile);
+        underTest.addUser(profile);
 
         //then
         ArgumentCaptor<Profile> profileArgumentCaptor =
