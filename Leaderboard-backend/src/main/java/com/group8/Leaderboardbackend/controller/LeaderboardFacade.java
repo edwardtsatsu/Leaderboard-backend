@@ -53,6 +53,10 @@ public class LeaderboardFacade {
 
 
     }
+
+    public Profile createProfile(Profile profile){
+        return leaderboardRepositoryService.createProfile(profile);
+    }
   
 
 

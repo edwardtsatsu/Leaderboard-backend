@@ -23,7 +23,7 @@ import java.util.List;
 public class LeaderboardController {
     private final LeaderboardFacade leaderboardFacade;
 
-    @GetMapping
+    @GetMapping("/users")
     public List<ProfileDto> getLeaderboard() {
         return leaderboardFacade.getLeaderboard();
     }
