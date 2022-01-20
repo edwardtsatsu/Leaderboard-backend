@@ -3,7 +3,6 @@ package com.group8.Leaderboardbackend.controller;
 import com.group8.Leaderboardbackend.controller.response.OverallRankResponse;
 import com.group8.Leaderboardbackend.controller.response.ProfileDto;
 import com.group8.Leaderboardbackend.controller.response.ProfileResponse;
-import com.group8.Leaderboardbackend.model.Profile;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -23,29 +22,33 @@ public class LeaderboardController {
     private final LeaderboardFacade leaderboardFacade;
 
     @GetMapping
+    @ApiOperation(value = "Get All Profiles api")
     public List<ProfileDto> getLeaderboard() {
         return leaderboardFacade.getLeaderboard();
     }
 
     @GetMapping("/honour")
+    @ApiOperation(value = "Get Profile Ordered By Honour api")
     public List<ProfileResponse> getLeaderboardByHonour(){
         return leaderboardFacade.getLeaderboardByHonour();
 
     }
 
     @GetMapping("/overallRank")
+    @ApiOperation(value = "Get Profile Ordered By Overall_Rank api")
     public List<OverallRankResponse> getLeaderboardByRank(){
         return leaderboardFacade.getLeaderboardByRank();
     }
 
-    @PostMapping
-    @ApiOperation(value = "create profile api")
-    public void createProfile(@RequestBody Profile profile) {
-        leaderboardFacade.createProfile(profile);
+    @PostMapping("/add/{username}")
+    @ApiOperation(value = "Create Profile api")
+    public ProfileDto addUser(@RequestParam String username) {
+        return leaderboardFacade.addUser(username);
     }
 
 
     @GetMapping("language/{language}")
+    @ApiOperation(value = "Get Profile By Language api")
     public List<ProfileDto> getUsersByLanguage(@PathVariable("language") String language ){
         return leaderboardFacade.getUsersByCommonLanguage(language);
     }
