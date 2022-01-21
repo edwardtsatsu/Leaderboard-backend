@@ -40,9 +40,9 @@ public class LeaderboardController {
         return leaderboardFacade.getLeaderboardByRank();
     }
 
-    @PostMapping("/add/{username}")
+    @PostMapping("/add")
     @ApiOperation(value = "Create Profile api")
-    public ProfileDto addUser(@RequestParam String username) {
+    public ProfileDto addUser(@RequestBody Profile username) {
         return leaderboardFacade.addUser(username);
     }
 
