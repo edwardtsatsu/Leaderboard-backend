@@ -58,10 +58,13 @@ public class LeaderboardFacade {
     }
 
 
-    public ProfileDto addUser(String username){
-        UserDto user = codewarsClient.getUser(username);
-        Profile profileObject = userDtoToProfileConverter.convert(user);
-        return profileToProfileDtoConverter.convert(leaderboardRepositoryService.addUser(profileObject));
+    public ProfileDto addUser(Profile username){
+        String id = username.getId();
+        UserDto user = codewarsClient.getUser(id);
+        Profile profileObject = ;
+        return profileToProfileDtoConverter
+            .convert(leaderboardRepositoryService
+            .addUser(userDtoToProfileConverter.convert(user));
     }
 
 
@@ -73,5 +76,5 @@ public class LeaderboardFacade {
                 .collect(toList());
     }
 
-
+Update LeaderboardFacade
 }
